@@ -10,18 +10,26 @@ for (let i = 0; i < suits.length; i++) {
 
 const print = () => {
   deck.map(card => {
-    console.log(card);
+    //     console.log(card);
   });
 };
 
 print();
 
 const shuffle = () => {
-  let max = deck.length;
-  for (card in deck) {
-    let idx = Math.floor(Math.random() * max);
-    console.log(deck[idx]);
+  let randomCards = [];
+  i = deck.length;
+  j = 0;
+
+  while (i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    randomCards.push(deck[j]);
+    deck.splice(j, 1);
   }
+
+  randomCards.map(card => {
+    console.log(card);
+  });
 };
 
 shuffle();
